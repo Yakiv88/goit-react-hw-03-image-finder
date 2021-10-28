@@ -1,33 +1,31 @@
-import { Component } from "react";
-import ImageGalleryItem from "../ImageGalleryItem/ImageGalleryItem";
-import s from "./ImageGallery.module.css";
-import PropTypes from "prop-types";
-import ImageError from "../ImageError/ImageError";
+import { Component } from 'react'
+import ImageGalleryItem from '../ImageGalleryItem/ImageGalleryItem'
+import s from './ImageGallery.module.css'
+import PropTypes from 'prop-types'
+import ImageError from '../ImageError/ImageError'
 
 class ImageGallery extends Component {
   state = {
     showModal: false,
-    modalImg: "",
-  };
+    modalImg: '',
+  }
 
   toggleModal = () => {
     this.setState(({ showModal }) => ({
       showModal: !showModal,
-    }));
-  };
+    }))
+  }
 
-  onImgClick = (e) => {
-    const { img } = e.target.dataset;
-
-    this.setState({ modalImg: img });
-    this.toggleModal();
-  };
+  onImgClick = (img) => {
+    this.setState({ modalImg: img })
+    this.toggleModal()
+  }
 
   render() {
-    let imageListContent;
-    const { images } = this.props;
-    const { onImgClick, toggleModal } = this;
-    const { showModal, modalImg } = this.state;
+    let imageListContent
+    const { images } = this.props
+    const { onImgClick, toggleModal } = this
+    const { showModal, modalImg } = this.state
 
     if (images) {
       imageListContent = (
@@ -45,12 +43,12 @@ class ImageGallery extends Component {
             />
           ))}
         </ul>
-      );
+      )
     } else {
-      <ImageError />;
+      ;<ImageError />
     }
 
-    return <div>{imageListContent}</div>;
+    return <div>{imageListContent}</div>
   }
 }
 
@@ -64,8 +62,8 @@ ImageGallery.propTypes = {
       webformatURL: PropTypes.string,
       tags: PropTypes.string,
       largeImageURL: PropTypes.string,
-    })
+    }),
   ),
-};
+}
 
-export default ImageGallery;
+export default ImageGallery

@@ -1,31 +1,31 @@
-import { Component } from "react";
-import s from "./Searchbar.module.css";
-import { toast } from "react-toastify";
-import PropTypes from "prop-types";
+import { Component } from 'react'
+import s from './Searchbar.module.css'
+import { toast } from 'react-toastify'
+import PropTypes from 'prop-types'
 
 class Searchbar extends Component {
   state = {
-    query: "",
-  };
+    query: '',
+  }
 
   handleQueryChange = (e) => {
-    this.setState({ query: e.target.value.toLowerCase() });
-  };
+    this.setState({ query: e.target.value.toLowerCase() })
+  }
 
   handleSubmit = (e) => {
-    const { onSubmit } = this.props;
-    const { query } = this.state;
-    e.preventDefault();
-    if (query.trim() === "") {
-      return toast.error("Enter your query!");
+    const { onSubmit } = this.props
+    const { query } = this.state
+    e.preventDefault()
+    if (query.trim() === '') {
+      return toast.error('ВВедите запрос')
     }
-    onSubmit(query);
-    this.setState({ query: "" });
-  };
+    onSubmit(query)
+    this.setState({ query: '' })
+  }
 
   render() {
-    const { handleSubmit, handleQueryChange } = this;
-    const { query } = this.state;
+    const { handleSubmit, handleQueryChange } = this
+    const { query } = this.state
     return (
       <div>
         <header className={s.Searchbar}>
@@ -47,12 +47,12 @@ class Searchbar extends Component {
           </form>
         </header>
       </div>
-    );
+    )
   }
 }
 
 Searchbar.propTypes = {
   onSubmit: PropTypes.func,
-};
+}
 
-export default Searchbar;
+export default Searchbar

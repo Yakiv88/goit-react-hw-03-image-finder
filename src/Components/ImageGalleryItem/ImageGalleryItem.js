@@ -1,6 +1,6 @@
-import s from "./ImageGalleryItem.module.css";
-import Modal from "../Modal/Modal";
-import PropTypes from "prop-types";
+import s from './ImageGalleryItem.module.css'
+import Modal from '../Modal/Modal'
+import PropTypes from 'prop-types'
 
 function ImageGalleryItem({
   id,
@@ -20,7 +20,7 @@ function ImageGalleryItem({
           src={previewImg}
           alt={tags}
           className={s.ImageGalleryItemImage}
-          onClick={onImgClick}
+          onClick={() => onImgClick(largeImageURL)}
         />
       </li>
 
@@ -28,7 +28,7 @@ function ImageGalleryItem({
         <Modal modalImg={modalImg} onToggleModal={onToggleModal} tags={tags} />
       )}
     </>
-  );
+  )
 }
 
 ImageGalleryItem.propTypes = {
@@ -39,6 +39,6 @@ ImageGalleryItem.propTypes = {
   showModal: PropTypes.bool,
   modalImg: PropTypes.string,
   onClick: PropTypes.func,
-};
+}
 
-export default ImageGalleryItem;
+export default ImageGalleryItem
